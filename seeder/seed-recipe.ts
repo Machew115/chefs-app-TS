@@ -15,7 +15,7 @@ db.recipe.create([{
     console.log('success')
     process.exit()
 })
-.catch(err =>{
+.catch((err: any) =>{
     console.log('Failure!', err)
     process.exit()
 })

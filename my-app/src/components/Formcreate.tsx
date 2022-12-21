@@ -18,7 +18,7 @@ function CreateRecipeForm() {
     })
 
 
-    function handleChange(event) {
+    function handleChange(event: { target: { name: any; value: any; }; }) {
         const {name, value} = event.target;
 
         setInput(prevInput => {
@@ -32,7 +32,7 @@ function CreateRecipeForm() {
       navigate('/recipes')
     }
 
-    function handleClick(event) {
+    function handleClick(event: { preventDefault: () => void; }) {
         event.preventDefault();
         const newRecipe = {
               name: input.name,

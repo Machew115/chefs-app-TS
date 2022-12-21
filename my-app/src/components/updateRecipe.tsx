@@ -11,10 +11,10 @@ function Update() {
     const navigate = useNavigate();
 
     const [recipe, setRecipe] = useState([{
-        //name: '',
-        //pic: '',
-        //instuctions: '',
-        //type: '',
+        name: '',
+        pic: '',
+        instuctions: '',
+        type: '',
     }]) 
     useEffect(() =>{
         fetch(`http://localhost:5002/recipes/${id}`)
@@ -31,7 +31,7 @@ const navigateBack = () => {
   navigate(-1)
 }
 
-    function handleChange(event) {
+    function handleChange(event: { target: { name: any; value: any; }; }) {
         const {name, value} = event.target;
 
         setRecipe(prevInput => {
@@ -41,7 +41,7 @@ const navigateBack = () => {
             }
         }) 
     }
-    function handleClick(event) {
+    function handleClick(event: { preventDefault: () => void; }) {
         event.preventDefault();
         const updatedRecipe = {
               name: recipe.name,

@@ -7,9 +7,10 @@ import Button from 'react-bootstrap/Button';
 function ViewRecipe() {
     const{ id } = useParams();
     const navigate = useNavigate();
-    const [recipe, setRecipe] = useState([{
+    const [recipes, setRecipe] = useState([{
+        _id: '',
         name: '',
-        picture: '',
+        pic: '',
         instuctions: '',
         type: '',
     }]) 
@@ -18,23 +19,23 @@ function ViewRecipe() {
         .then(res => {
             return res.json();
     })
-    .then(recipeView => {
-        setRecipe(recipeView)  
+    .then(recipe => {
+        setRecipe(recipe)  
     })
 }, [])
 
 
-const deleteRecipe = (id) => {
+const deleteRecipe = (id: string | undefined) => {
     axios.delete(`http://localhost:5002/recipes/${id}`)
 }    
     return (
         <div className="Recipe-view-page">
             <div className='recipe-view-details'>
-            <h1 className='recipe-view-name'>{recipe.name}</h1>
-            <img className='recipe-view-img' src={recipe.pic}></img>
-            <p className='recipe-view-instructions'>{recipe.instructions}</p>
+            <h1 className='recipe-view-name'>{recipes.name}</h1>
+            <img className='recipe-view-img' src={recipes.pic}></img>
+            <p className='recipe-view-instructions'>{recipes.instructions}</p>
             </div>
-            <Link key={recipe._id} to={{pathname:`/recipes/${recipe._id}/edit`}}><Button variant="outline-warning" className='recipe-view-button'>Edit Recipe</Button></Link>
+            <Link key={recipes._id} to={{pathname:`/recipes/${recipes._id}/edit`}}><Button variant="outline-warning" className='recipe-view-button'>Edit Recipe</Button></Link>
             <a href='/recipes'><Button variant="outline-warning" className='recipe-view-button' onClick={() => {deleteRecipe(id)}}>Delete Recipe</Button></a>
             <Button className='recipe-view-button' variant="outline-warning" onClick={() => navigate(-1)}>Go Back</Button>
         </div>

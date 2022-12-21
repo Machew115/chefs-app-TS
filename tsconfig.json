@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "ES6",       
+      "module": "commonjs",                       
+      "esModuleInterop": true,      
+      "forceConsistentCasingInFileNames": true,             
+      "strict": true,                                      
+      "skipLibCheck": true,  
+      "jsx": "preserve",
+      "moduleResolution": "node"                                
+    },
+    "include": [
+      "./**/*.tsx"
+, "route/routes.ts", "seeder/seed-recipe.ts", "server.ts", "models/recipeModel.ts", "models/userModel.ts"    ]
+  }

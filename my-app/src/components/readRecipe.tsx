@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom';
 
 function Read() {
     const [recipes, setRecipes] = useState([{
+        _id: '',
         name: '',
-        picture: '',
+        pic: '',
         instuctions: '',
         type: '',
     }])
